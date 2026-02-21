@@ -1814,6 +1814,18 @@ header .navbar-brand{
     .heading-area {
         width: 100%;
     }
+    /* O NAMA: slika, logo, slika zaredom bez razmaka na telefonu */
+    .services-sec.padding-top {
+        padding-top: 0;
+    }
+    .services-sec .container .row > .col-12:first-child,
+    .services-sec .container .row > .col-12:nth-child(2) {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .services-sec .heading-area {
+        margin-bottom: 0;
+    }
     .services-sec .services-boxes {
         width: 100%;
     }
