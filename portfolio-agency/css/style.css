@@ -1469,7 +1469,7 @@ header .navbar-brand{
     text-decoration: underline;
 }
 /* nicer underline for contact headings */
-.contact-heading::after{
+/* .contact-heading::after{
     content: "";
     display: block;
     width: 54px;
@@ -1477,7 +1477,7 @@ header .navbar-brand{
     background: #cdb38c;
     margin-top: 6px;
     border-radius: 3px;
-}
+} */
 /* bigger readable text in contact blocks */
 .contact-text p,
 .contact-text li{
