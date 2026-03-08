@@ -184,7 +184,7 @@ jQuery(function ($) {
             }
 
             $('.btn-gallery-open').on('click', function() {
-                var $gallery = $(this).closest('.apartment-gallery');
+                var $gallery = $(this).closest('.apartment-gallery, .location-gallery');
                 var $imgs = $gallery.find('.apartment-gallery-images img');
                 var items = [];
                 $imgs.each(function() {
