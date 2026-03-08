@@ -167,15 +167,16 @@ header .btn-main:hover{
     background-position: 100%;
 }
 .anim-text-white {
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-image: -webkit-gradient(linear, left top, right top, from(var(--accent-blue)), color-stop(50%, var(--accent-blue)), color-stop(50%, #FFFFFF));
-    background-image: linear-gradient(to right, var(--accent-blue), var(--accent-blue) 50%, #FFFFFF 50%);
-    background-size: 200% 100%;
-    background-position: 100%;
+    /* Side menu links: solid accent color instead of gradient to white */
+    color: var(--accent-blue);
+    -webkit-text-fill-color: var(--accent-blue);
+    -webkit-background-clip: border-box;
+    background-image: none;
+    transition: color 0.2s ease;
 }
 
-.anim-text:hover,.anim-text-white:hover {
+.anim-text:hover,
+.anim-text-white:hover {
     -webkit-transition: all 0.8s cubic-bezier(0, 0, 0.23, 1);
     transition: all 0.8s cubic-bezier(0, 0, 0.23, 1);
     background-position: 0%;
@@ -483,7 +484,7 @@ header .navbar-brand{
     top: 0;
     bottom: 0;
     /*background: rgba(247, 28, 82, 0.6);*/
-    background-color: #202020;
+    background-color: #F5F0E8;
     z-index: 2032;
     height: 100%;
     -webkit-transform: translate3d(-100%, 0, 0);
@@ -558,8 +559,12 @@ header .navbar-brand{
     content: ' ';
     height: 24px;
     width: 2px;
-    background: #fff;
+    background: var(--accent-blue);
     top: 7px;
+}
+.side-menu .btn-close:hover::before,
+.side-menu .btn-close:hover::after{
+    background: var(--accent-blue-hover);
 }
 .side-menu .btn-close:before {
     -webkit-transform: rotate(35deg);
@@ -570,6 +575,29 @@ header .navbar-brand{
     -webkit-transform: rotate(-35deg);
     -ms-transform: rotate(-35deg);
     transform: rotate(-35deg);
+}
+
+/* side menu logo (top-right) */
+.side-menu-logo{
+    position: absolute;
+    top: 24px;
+    right: 40px;
+    display: inline-block;
+    z-index: 2;
+}
+.side-menu-logo img{
+    display: block;
+    width: 100px;
+    height: auto;
+}
+@media (max-width: 767.98px){
+    .side-menu-logo{
+        top: 20px;
+        right: 24px;
+    }
+    .side-menu-logo img{
+        width: 84px;
+    }
 }
 
 .side-menu .inner-wrapper {
@@ -603,7 +631,7 @@ header .navbar-brand{
     z-index: 1;
 }
 .side-menu-inner-content .copywrite ,.side-menu-inner-content .social-icons a i{
-    color: #FFFFFF;
+    color: #3a3a3a;
     opacity: 1;
 }
 .side-menu-inner-content .social-icons a:hover{
@@ -664,7 +692,7 @@ header .navbar-brand{
     align-items: center;
     text-decoration: none;
     font-size: 60px;
-    color: #000000;
+    color: var(--accent-blue);
     font-weight: 700;
     text-transform: lowercase;
     font-family: 'Montserrat', sans-serif;
@@ -1808,6 +1836,9 @@ header .navbar-brand{
     .navbar-nav .nav-link {
         font-size: 50px;
     }
+    .side-menu .navbar-nav .nav-link {
+        font-size: 32px;
+    }
 }
 /*Small devices (landscape phones, less than 768px)*/
 @media (max-width: 767.98px) {
@@ -1839,6 +1870,9 @@ header .navbar-brand{
     }
     .navbar-nav .nav-link {
         font-size: 37px;
+    }
+    .side-menu .navbar-nav .nav-link {
+        font-size: 24px;
     }
     .main {
         height: auto;
