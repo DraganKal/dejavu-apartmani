@@ -1077,6 +1077,165 @@ header .navbar-brand{
     -webkit-text-fill-color: #111111 !important;
 }
 
+/* Apartment gallery: jedna slika + dugme Vidi galeriju */
+.apartment-gallery-preview{
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f5f5f5;
+}
+.apartment-gallery-preview .image-holder{
+    position: relative;
+    display: block;
+}
+.apartment-gallery-preview .image-holder img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+@media (min-width: 992px){
+    .apartment-gallery-preview .image-holder img{
+        height: 560px;
+        object-fit: cover;
+    }
+}
+.btn-gallery-open{
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    z-index: 10;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(0,0,0,.65);
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background .2s ease, transform .15s ease;
+    box-shadow: 0 4px 16px rgba(0,0,0,.2);
+}
+.btn-gallery-open:hover{
+    background: rgba(0,0,0,.85);
+    color: #fff;
+    transform: translateX(-50%) scale(1.03);
+}
+
+/* Fullscreen galerija lightbox */
+.gallery-lightbox{
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .25s ease, visibility .25s ease;
+}
+.gallery-lightbox.is-open{
+    opacity: 1;
+    visibility: visible;
+}
+.gallery-lightbox[hidden]{ display: none !important; }
+.gallery-lightbox:not([hidden]).is-open{ display: flex !important; }
+
+.gallery-lightbox-backdrop{
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.88);
+    cursor: pointer;
+}
+.gallery-lightbox-content{
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+}
+.gallery-lightbox-content img{
+    max-width: 100%;
+    max-height: calc(100vh - 120px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+}
+.gallery-lightbox-close{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 3;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    font-size: 32px;
+    line-height: 1;
+    color: #fff;
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.gallery-lightbox-close:hover{
+    background: rgba(255,255,255,.25);
+    color: #fff;
+}
+.gallery-lightbox-prev,
+.gallery-lightbox-next{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    font-size: 36px;
+    line-height: 1;
+    color: #fff;
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.gallery-lightbox-prev{ left: 16px; }
+.gallery-lightbox-next{ right: 16px; }
+.gallery-lightbox-prev:hover,
+.gallery-lightbox-next:hover{
+    background: rgba(255,255,255,.25);
+    color: #fff;
+}
+.gallery-lightbox-counter{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    font-size: 14px;
+    color: rgba(255,255,255,.9);
+    background: rgba(0,0,0,.4);
+    padding: 6px 14px;
+    border-radius: 999px;
+}
+@media (max-width: 575.98px){
+    .gallery-lightbox-prev{ left: 8px; }
+    .gallery-lightbox-next{ right: 8px; }
+    .gallery-lightbox-close{ top: 8px; right: 8px; width: 44px; height: 44px; font-size: 28px; }
+}
+
 /*=================================
         Testimonial sec css
 ===================================*/
