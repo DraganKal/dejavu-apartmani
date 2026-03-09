@@ -90,32 +90,27 @@ jQuery(function ($) {
         // ===========================
         //     portfolio carousel
         // ===========================
-        $('.portfolio-carousel').owlCarousel({
-
-            loop:true,
-            margin:10,
+        var owlCommon = {
+            loop: true,
+            margin: 10,
             slideSpeed: 5000,
-            slideTransition:'linear',
-            nav:false,
-            dots:true,
-            autoplay:true,
-            autoplayTimeout:5000,
-            autoplaySpeed:800,
-            autoplayHoverPause:true,
-            responsive:{
-                0:{
-
-                    items:1
-                },
-                600:{
-                    items:1
-                },
-                1000:{
-                    items:1
-                },
-            }
-
-        });
+            slideTransition: 'linear',
+            nav: false,
+            dots: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplaySpeed: 800,
+            autoplayHoverPause: true,
+            responsive: { 0: { items: 1 }, 600: { items: 1 }, 1000: { items: 1 } }
+        };
+        $('.apartment-gallery .portfolio-carousel').owlCarousel($.extend({}, owlCommon, {
+            autoHeight: true,
+            autoHeightClass: 'owl-height'
+        }));
+        $('.location-block .portfolio-carousel').owlCarousel($.extend({}, owlCommon, {
+            autoHeight: true,
+            autoHeightClass: 'owl-height'
+        }));
 
         $('.portfolio-right-arr').click(function() {
             var container = $(this).closest('.position-relative');

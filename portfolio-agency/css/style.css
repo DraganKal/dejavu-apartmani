@@ -441,6 +441,12 @@ header .inner-header{
 header .navbar-brand{
     margin-right: 0;
 }
+@media (min-width: 992px){
+    header .navbar-brand img{
+        width: 130px;
+        height: auto;
+    }
+}
 /*side open btn*/
 
 .sidemenu_btn {
@@ -577,26 +583,29 @@ header .navbar-brand{
     transform: rotate(-35deg);
 }
 
-/* side menu logo (top-right) */
+/* side menu logo – centriran, iznad navigacije */
 .side-menu-logo{
     position: absolute;
     top: 24px;
-    right: 40px;
-    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+    display: block;
+    text-align: center;
     z-index: 2;
 }
 .side-menu-logo img{
     display: block;
-    width: 100px;
+    width: 130px;
     height: auto;
+    margin: 0 auto;
 }
 @media (max-width: 767.98px){
     .side-menu-logo{
         top: 20px;
-        right: 24px;
     }
     .side-menu-logo img{
-        width: 84px;
+        width: 110px;
     }
 }
 
@@ -1031,12 +1040,68 @@ header .navbar-brand{
     line-height: 1.6;
 }
 
-/* Apartment images fixed height on desktop */
+/* Apartment gallery Dejavu 1 & 2: mobil – autoHeight, tačkice dinamički na dnu slike */
+@media (max-width: 991.98px){
+    .apartment-gallery .portfolio-carousel{
+        position: relative;
+    }
+    .apartment-gallery .portfolio-carousel .owl-item .image-holder{
+        position: relative;
+        display: block;
+        background: #F5F0E8;
+    }
+    .apartment-gallery .portfolio-carousel .owl-item .image-holder img{
+        max-height: 85vh;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        object-fit: contain;
+    }
+    .apartment-gallery .portfolio-carousel .owl-dots{
+        position: absolute;
+        bottom: 12px;
+        left: 0;
+        right: 0;
+    }
+}
+
+/* Lokacija (Novi Sad) galerija: mobil – isto autoHeight, tačkice na dnu slike */
+@media (max-width: 991.98px){
+    .location-block .portfolio-carousel{
+        position: relative;
+    }
+    .location-block .portfolio-carousel .owl-item .image-holder{
+        position: relative;
+        display: block;
+        background: #F5F0E8;
+    }
+    .location-block .portfolio-carousel .owl-item .image-holder img{
+        max-height: 85vh;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        object-fit: contain;
+    }
+    .location-block .portfolio-carousel .owl-dots{
+        position: absolute;
+        bottom: 12px;
+        left: 0;
+        right: 0;
+    }
+}
+
+/* Apartment images fixed height on desktop – contain za uspravne slike */
 @media (min-width: 992px){
     .apartment-gallery .image-holder img{
         width: 100%;
-        height: 800px;
-        object-fit: cover;
+        height: 650px;
+        object-fit: contain;
+        object-position: center;
+        background: #F5F0E8;
     }
     /* Limit location carousel image height on desktop to prevent overflow */
     .location-block .image-holder img{
