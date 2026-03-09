@@ -643,6 +643,9 @@ header .navbar-brand{
     color: #3a3a3a;
     opacity: 1;
 }
+.side-menu-inner-content .side-menu-footer .copywrite{
+    white-space: nowrap;
+}
 .side-menu-inner-content .social-icons a:hover{
     background-color: #ffffff;
 }
