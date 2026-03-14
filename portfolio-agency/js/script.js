@@ -97,10 +97,7 @@ jQuery(function ($) {
             slideTransition: 'linear',
             nav: false,
             dots: true,
-            autoplay: true,
-            autoplayTimeout: 5000,
-            autoplaySpeed: 800,
-            autoplayHoverPause: true,
+            autoplay: false,
             responsive: { 0: { items: 1 }, 600: { items: 1 }, 1000: { items: 1 } }
         };
         $('.apartment-gallery .portfolio-carousel').owlCarousel($.extend({}, owlCommon, {
@@ -256,6 +253,53 @@ jQuery(function ($) {
     );
     wow.init();
 
+    // ===========================
+    //     Reviews Slider
+    // ===========================
+    (function initReviewsSlider() {
+        var slider = document.getElementById('reviews-slider');
+        var prevBtn = document.getElementById('reviews-prev');
+        var nextBtn = document.getElementById('reviews-next');
+        
+        if (!slider || !prevBtn || !nextBtn) return;
+        
+        var scrollAmount = 324;
+        
+        function getScrollAmount() {
+            var card = slider.querySelector('.review-card');
+            if (card) {
+                return card.offsetWidth + 24;
+            }
+            return scrollAmount;
+        }
+        
+        prevBtn.addEventListener('click', function() {
+            slider.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+        });
+        
+        nextBtn.addEventListener('click', function() {
+            slider.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+        });
+        
+        var touchStartX = 0;
+        var touchEndX = 0;
+        
+        slider.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        slider.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            var diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    slider.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+                } else {
+                    slider.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+                }
+            }
+        }, { passive: true });
+    })();
 
 
 });

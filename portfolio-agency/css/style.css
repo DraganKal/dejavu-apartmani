@@ -443,7 +443,7 @@ header .navbar-brand{
 }
 @media (min-width: 992px){
     header .navbar-brand img{
-        width: 130px;
+        width: 150px;
         height: auto;
     }
 }
@@ -549,12 +549,9 @@ header .navbar-brand{
     display: inline-block;
     text-align: center;
     position: absolute;
-    top: 31px;
+    top: 50px;
     left: 40px;
     cursor: pointer;
-}
-.header-appear ~ .side-menu .btn-close {
-    top: 50px;
 }
 .side-menu.before-side .btn-close{
     display: none;
@@ -596,7 +593,7 @@ header .navbar-brand{
 }
 .side-menu-logo img{
     display: block;
-    width: 130px;
+    width: 150px;
     height: auto;
     margin: 0 auto;
 }
@@ -620,7 +617,8 @@ header .navbar-brand{
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    text-align: left;
+    justify-content: center;
+    text-align: center;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
@@ -629,22 +627,43 @@ header .navbar-brand{
 }
 .side-menu .navbar-nav{
     margin-bottom: 30px;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    transform: none;
+}
+.side-menu .navbar-nav .nav-link{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+.side-menu .menu-line{
+    left: -35px;
 }
 
 .side-menu-inner-content .side-menu-footer{
     position: absolute;
-    left: 40px;
-    right: 40px;
+    left: 0 !important;
+    right: 0 !important;
     bottom: 28px;
     z-index: 1;
+    text-align: center !important;
+    padding: 0 20px;
+}
+.side-menu-inner-content .side-menu-footer p,
+.side-menu-inner-content .side-menu-footer .copywrite,
+.side-menu-inner-content .side-menu-footer .copywrite.text-right{
+    width: 100% !important;
+    float: none !important;
+    padding: 0 !important;
+    text-align: center !important;
+    margin: 0;
 }
 .side-menu-inner-content .copywrite ,.side-menu-inner-content .social-icons a i{
     color: #3a3a3a;
     opacity: 1;
-}
-.side-menu-inner-content .side-menu-footer .copywrite{
-    white-space: nowrap;
 }
 .side-menu-inner-content .social-icons a:hover{
     background-color: #ffffff;
@@ -656,7 +675,17 @@ header .navbar-brand{
     display: none;
 }
 .side-menu-inner-content .navbar-nav{
-    transform: translateY(0);
+    transform: none;
+}
+.side-menu-inner-content .nav-icon{
+    margin-left: 0 !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+    display: flex;
+    justify-content: center;
+}
+.side-menu-inner-content .nav-icon .navbar{
+    width: auto;
 }
 
 @-webkit-keyframes animationFade {
@@ -2126,6 +2155,12 @@ header .navbar-brand{
     .side-menu .navbar-nav .nav-link {
         font-size: 24px;
     }
+    .side-menu .inner-wrapper {
+        padding: 3rem 1.5rem;
+    }
+    .side-menu .menu-line {
+        left: -28px;
+    }
     .main {
         height: auto;
     }
@@ -2239,6 +2274,142 @@ header .navbar-brand{
 .rules-modal-body .rules-list{
     margin: 0 0 12px 0;
     padding-left: 20px;
+}
+
+/* ===================================
+   Reviews / Testimonials Section
+   =================================== */
+.reviews-sec{
+    background-color: #F5F0E8;
+}
+.reviews-sec .section-intro h4{
+    font-size: 44px;
+    margin-bottom: 12px;
+}
+.reviews-sec .section-intro p{
+    color: #666;
+    font-size: 16px;
+}
+.reviews-slider-wrapper{
+    position: relative;
+    overflow: hidden;
+    margin: 0 -12px;
+}
+.reviews-slider{
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 12px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.reviews-slider::-webkit-scrollbar{
+    display: none;
+}
+.review-card{
+    flex: 0 0 calc(33.333% - 16px);
+    min-width: 300px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.review-card:hover{
+    transform: translateY(-4px);
+}
+.review-header{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+.review-avatar{
+    width: 48px;
+    height: 48px;
+    background: var(--accent-blue);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+}
+.review-info{
+    display: flex;
+    flex-direction: column;
+}
+.review-name{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #333;
+}
+.review-country{
+    font-size: 13px;
+    color: #888;
+}
+.review-text{
+    font-size: 15px;
+    line-height: 1.7;
+    color: #444;
+    margin: 0;
+    font-style: italic;
+}
+.reviews-nav{
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 32px;
+}
+.reviews-nav-btn{
+    width: 48px;
+    height: 48px;
+    border: 2px solid var(--accent-blue);
+    background: transparent;
+    color: var(--accent-blue);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+.reviews-nav-btn:hover{
+    background: var(--accent-blue);
+    color: #fff;
+}
+.reviews-nav-btn:disabled{
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Medium devices - 2 cards per row */
+@media (max-width: 991.98px){
+    .review-card{
+        flex: 0 0 calc(50% - 12px);
+        min-width: 280px;
+    }
+    .reviews-sec .section-intro h4{
+        font-size: 36px;
+    }
+}
+
+/* Small devices - 1 card per row */
+@media (max-width: 767.98px){
+    .review-card{
+        flex: 0 0 calc(100% - 24px);
+        min-width: 260px;
+    }
+    .reviews-sec .section-intro h4{
+        font-size: 28px;
+    }
+    .review-card{
+        padding: 22px;
+    }
 }
 
 /*Extra small devices (portrait phones, less than 576px)*/
